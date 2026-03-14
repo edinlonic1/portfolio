@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="40" r="25" fill="#ef4444">
+    <animate attributeName="opacity" values="1;0.3;1" dur="1s" repeatCount="indefinite"/>
+  </circle>
+  <path d="M35 65 L30 80 L70 80 L65 65 Z" fill="#dc2626"/>
+  <rect x="25" y="80" width="50" height="5" fill="#991b1b" rx="2"/>
+</svg>

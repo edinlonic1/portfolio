@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect x="30" y="15" width="40" height="70" fill="none" stroke="#10b981" stroke-width="3" rx="5"/>
+  <line x1="45" y1="22" x2="55" y2="22" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="50" cy="78" r="3" fill="#10b981"/>
+  
+  <!-- Speed lines -->
+  <line x1="20" y1="35" x2="28" y2="35" stroke="#fbbf24" stroke-width="2" stroke-linecap="round">
+    <animate attributeName="x1" values="20;25;20" dur="1.5s" repeatCount="indefinite"/>
+    <animate attributeName="x2" values="28;33;28" dur="1.5s" repeatCount="indefinite"/>
+  </line>
+  <line x1="18" y1="45" x2="28" y2="45" stroke="#fbbf24" stroke-width="2" stroke-linecap="round">
+    <animate attributeName="x1" values="18;23;18" dur="1.5s" repeatCount="indefinite"/>
+    <animate attributeName="x2" values="28;33;28" dur="1.5s" repeatCount="indefinite"/>
+  </line>
+  <line x1="22" y1="55" x2="28" y2="55" stroke="#fbbf24" stroke-width="2" stroke-linecap="round">
+    <animate attributeName="x1" values="22;27;22" dur="1.5s" repeatCount="indefinite"/>
+    <animate attributeName="x2" values="28;33;28" dur="1.5s" repeatCount="indefinite"/>
+  </line>
+  
+  <line x1="72" y1="35" x2="80" y2="35" stroke="#fbbf24" stroke-width="2" stroke-linecap="round">
+    <animate attributeName="x1" values="72;67;72" dur="1.5s" repeatCount="indefinite"/>
+    <animate attributeName="x2" values="80;75;80" dur="1.5s" repeatCount="indefinite"/>
+  </line>
+  <line x1="72" y1="45" x2="82" y2="45" stroke="#fbbf24" stroke-width="2" stroke-linecap="round">
+    <animate attributeName="x1" values="72;67;72" dur="1.5s" repeatCount="indefinite"/>
+    <animate attributeName="x2" values="82;77;82" dur="1.5s" repeatCount="indefinite"/>
+  </line>
+  <line x1="72" y1="55" x2="78" y2="55" stroke="#fbbf24" stroke-width="2" stroke-linecap="round">
+    <animate attributeName="x1" values="72;67;72" dur="1.5s" repeatCount="indefinite"/>
+    <animate attributeName="x2" values="78;73;78" dur="1.5s" repeatCount="indefinite"/>
+  </line>
+  
+  <!-- Performance gauge inside phone -->
+  <circle cx="50" cy="45" r="12" fill="none" stroke="#10b981" stroke-width="2" opacity="0.3"/>
+  <path d="M44 45 L50 39 L56 45" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

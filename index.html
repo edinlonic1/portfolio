@@ -1,0 +1,2261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senior Angular Developer | Portfolio</title>
+
+    <style>
+        /* ===== CSS RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #0a0a0f;
+            color: #e4e4e7;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== ANIMATED BACKGROUND GRADIENT ===== */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0a0a0f 100%);
+            animation: gradientShift 15s ease infinite;
+        }
+
+        .bg-gradient::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ===== CONTAINER & SECTION STYLES ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 6rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            opacity: 1;
+            transform: none;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-content .title {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 600;
+            color: #e4e4e7;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content .tagline {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: #a1a1aa;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #e4e4e7;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(99, 102, 241, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* ===== SECTION HEADERS ===== */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #f4f4f5;
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: #a1a1aa;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* ===== GLASS CARD STYLES ===== */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        /* ===== ENGINEERING PROFILE ===== */
+        .profile-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #d4d4d8;
+        }
+
+        .profile-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* ===== CORE TECHNOLOGIES ===== */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tech-badge {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+            cursor: default;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .tech-badge:hover {
+            background: rgba(99, 102, 241, 0.1);
+            border-color: rgba(99, 102, 241, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .tech-icon {
+            font-size: 3rem;
+            line-height: 1;
+            filter: grayscale(0.3);
+            transition: filter 0.3s ease;
+        }
+
+        .tech-icon img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            filter: grayscale(0.3) brightness(0.9);
+            transition: filter 0.3s ease;
+        }
+
+        .tech-badge:hover .tech-icon {
+            filter: grayscale(0);
+        }
+
+        .tech-badge:hover .tech-icon img {
+            filter: grayscale(0) brightness(1);
+        }
+
+        .tech-name {
+            font-size: 1rem;
+            color: #e4e4e7;
+        }
+
+        /* ===== SYSTEMS CARDS ===== */
+        .systems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .system-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .system-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 50px rgba(99, 102, 241, 0.2);
+        }
+
+        .system-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .system-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #f4f4f5;
+        }
+
+        .system-card p {
+            color: #a1a1aa;
+            line-height: 1.7;
+        }
+
+        /* ===== ENGINEERING STRENGTHS ===== */
+        .strengths-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .strength-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .strength-item:hover {
+            background: rgba(99, 102, 241, 0.1);
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateX(10px);
+        }
+
+        .strength-icon {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        .strength-text {
+            font-size: 1.125rem;
+            color: #e4e4e7;
+        }
+
+        /* ===== FEATURED ENGINEERING CHALLENGES ===== */
+        .challenges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .challenge-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .challenge-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .challenge-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.25);
+        }
+
+        .challenge-card:hover::before {
+            opacity: 1;
+        }
+
+        .challenge-icon {
+            width: 56px;
+            height: 56px;
+            margin-bottom: 1.5rem;
+            display: block;
+            filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.3));
+        }
+
+        .challenge-card h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #f4f4f5;
+            line-height: 1.3;
+        }
+
+        .challenge-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .challenge-label {
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #60a5fa;
+            margin-bottom: 0.5rem;
+        }
+
+        .challenge-text {
+            color: #d4d4d8;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .challenge-technologies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tech-tag {
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #c4b5fd;
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            background: rgba(99, 102, 241, 0.25);
+            border-color: rgba(99, 102, 241, 0.5);
+        }
+
+        /* ===== TOOLS & UTILITIES ===== */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tool-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.75rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .tool-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .tool-image {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.75rem;
+        }
+
+        .tool-content {
+            flex: 1;
+        }
+
+        .tool-card h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #f4f4f5;
+        }
+
+        .tool-card p {
+            color: #a1a1aa;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* ===== AI & MODERN DEVELOPMENT ===== */
+        .ai-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .ai-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .ai-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .ai-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .ai-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #f4f4f5;
+        }
+
+        .ai-card p {
+            color: #a1a1aa;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* ===== DEBUGGING & PROBLEM SOLVING ===== */
+        .debugging-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .debugging-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .debugging-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .debugging-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .debugging-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #f4f4f5;
+        }
+
+        .debugging-card p {
+            color: #a1a1aa;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* ===== ON-CALL & INCIDENT MANAGEMENT ===== */
+        .oncall-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .oncall-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .oncall-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .oncall-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .oncall-icon {
+            width: 56px;
+            height: 56px;
+            filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.3));
+        }
+
+        .oncall-card h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #f4f4f5;
+        }
+
+        .oncall-description {
+            color: #d4d4d8;
+            line-height: 1.8;
+            font-size: 1.075rem;
+            margin-bottom: 2rem;
+        }
+
+        .oncall-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .oncall-highlight {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            border-left: 3px solid rgba(239, 68, 68, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .oncall-highlight:hover {
+            background: rgba(239, 68, 68, 0.05);
+            border-left-color: rgba(239, 68, 68, 0.7);
+            transform: translateX(5px);
+        }
+
+        .highlight-icon {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+        }
+
+        .highlight-text {
+            color: #d4d4d8;
+            line-height: 1.6;
+            font-size: 0.975rem;
+        }
+
+        /* ===== CUSTOMER FOCUS ===== */
+        .customer-focus-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .customer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .customer-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .customer-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateX(10px);
+        }
+
+        .customer-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .customer-card h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #f4f4f5;
+        }
+
+        .customer-card p {
+            color: #a1a1aa;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* ===== MOBILE & CROSS-PLATFORM ===== */
+        .mobile-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .mobile-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .mobile-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .mobile-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #f4f4f5;
+        }
+
+        .mobile-card p {
+            color: #a1a1aa;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* ===== LIFE & INTERESTS ===== */
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .interest-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .interest-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .interest-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .interest-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #f4f4f5;
+        }
+
+        .interest-card p {
+            color: #a1a1aa;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* ===== WORK EXPERIENCE TIMELINE ===== */
+        .timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, rgba(99, 102, 241, 0.5) 0%, rgba(139, 92, 246, 0.5) 100%);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+        }
+
+        .experience-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .experience-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .experience-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .experience-company {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f4f4f5;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-role {
+            font-size: 1.125rem;
+            color: #60a5fa;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-dates {
+            font-size: 0.95rem;
+            color: #a1a1aa;
+        }
+
+        .experience-details {
+            list-style: none;
+        }
+
+        .experience-details li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #d4d4d8;
+            line-height: 1.7;
+            position: relative;
+        }
+
+        .experience-details li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #6366f1;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .experience-highlight {
+            background: rgba(99, 102, 241, 0.1);
+            border-left: 3px solid #6366f1;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .experience-highlight p {
+            color: #e4e4e7;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* ===== LEADERSHIP CARDS ===== */
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .leadership-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .leadership-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .leadership-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .leadership-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #f4f4f5;
+        }
+
+        .leadership-card p {
+            color: #a1a1aa;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* ===== ENGINEERING PRINCIPLES ===== */
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .principle-card {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid #6366f1;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .principle-card:hover {
+            background: rgba(99, 102, 241, 0.05);
+            border-left-color: #8b5cf6;
+            transform: translateX(10px);
+        }
+
+        .principle-card p {
+            font-size: 1.125rem;
+            color: #d4d4d8;
+            font-style: italic;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            text-decoration: none;
+            color: #e4e4e7;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: rgba(99, 102, 241, 0.1);
+            border-color: rgba(99, 102, 241, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .contact-icon {
+            width: 32px;
+            height: 32px;
+        }
+
+        .availability {
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 12px;
+            color: #86efac;
+            font-size: 1.125rem;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #71717a;
+            font-size: 0.875rem;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        /* Large tablets and small desktop (769px - 1024px) */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .tech-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1.25rem;
+            }
+
+            .leadership-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .ai-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .debugging-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .interests-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .mobile-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Tablet and small desktop (768px - 1024px) */
+        @media (max-width: 1024px) {
+            .tech-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1.25rem;
+            }
+        }
+
+        /* Mobile landscape and small tablets (480px - 768px) */
+        @media (max-width: 768px) {
+            section {
+                padding: 4rem 0;
+            }
+
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            .hero {
+                min-height: 90vh;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .tech-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+
+            .tech-badge {
+                padding: 1.5rem 1rem;
+            }
+
+            .systems-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .strengths-list {
+                grid-template-columns: 1fr;
+            }
+
+            .challenges-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ai-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .debugging-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .customer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .leadership-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .principles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .interests-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .mobile-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-item {
+                padding-left: 2rem;
+            }
+
+            .system-card,
+            .challenge-card,
+            .leadership-card,
+            .ai-card,
+            .debugging-card,
+            .interest-card,
+            .mobile-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .oncall-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .oncall-highlights {
+                gap: 1rem;
+            }
+        }
+
+        /* Small mobile devices (320px - 480px) */
+        @media (max-width: 480px) {
+            section {
+                padding: 3rem 0;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content .title {
+                font-size: 1.5rem;
+            }
+
+            .hero-content .tagline {
+                font-size: 1rem;
+            }
+
+            .tech-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.75rem;
+            }
+
+            .tech-badge {
+                padding: 1.25rem 0.75rem;
+            }
+
+            .tech-icon img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .tech-name {
+                font-size: 0.875rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .section-header p {
+                font-size: 1rem;
+            }
+
+            .system-card,
+            .challenge-card,
+            .leadership-card,
+            .ai-card,
+            .debugging-card,
+            .interest-card,
+            .mobile-card {
+                padding: 1.75rem 1.25rem;
+            }
+
+            .oncall-card {
+                padding: 1.75rem 1.25rem;
+            }
+
+            .oncall-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .experience-card {
+                padding: 1.5rem;
+            }
+
+            .btn {
+                padding: 0.875rem 2rem;
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Extra small devices (max 360px) */
+        @media (max-width: 360px) {
+            .tech-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.5rem;
+            }
+
+            .tech-badge {
+                padding: 1rem 0.5rem;
+            }
+
+            .tech-icon img {
+                width: 36px;
+                height: 36px;
+            }
+
+            .tech-name {
+                font-size: 0.8rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.75rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="bg-gradient"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Edin Lonic</h1>
+                <div class="title">Senior Software Engineer & Team Lead</div>
+                <p class="tagline">Building enterprise web, desktop, and mobile applications with 10 years of professional experience in Angular and .NET.</p>
+                <div class="hero-buttons">
+                    <a href="#systems" class="btn btn-primary">View Experience</a>
+                    <a href="#contact" class="btn btn-secondary">Contact</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engineering Profile -->
+    <section id="profile">
+        <div class="container">
+            <div class="section-header">
+                <h2>Engineering Profile</h2>
+            </div>
+            <div class="profile-content">
+                <p>
+                    Software developer with <strong>10 years of experience</strong> building and delivering enterprise web, desktop, and mobile applications using Angular and .NET. 
+                    I've worked on large-scale systems for U.S. clients in healthcare and highway tolling, as well as internal enterprise platforms such as work and resource management systems.
+                </p>
+                <p>
+                    My focus is on improving performance, build speed, and application stability while working on architecture decomposition and debugging complex issues across multiple environments. 
+                    I regularly lead project kick-offs, estimate work, implement and test features, and guide development teams to ensure high code quality and timely delivery.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Technologies -->
+    <section id="technologies">
+        <div class="container">
+            <div class="section-header">
+                <h2>Core Technologies</h2>
+                <p>Modern tools and frameworks I work with daily</p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-badge">
+                    <div class="tech-icon">
+                        <img src="assets/icons/angular.svg" alt="Angular" onerror="this.parentElement.innerHTML='🅰️'">
+                    </div>
+                    <div class="tech-name">Angular</div>
+                </div>
+                <div class="tech-badge">
+                    <div class="tech-icon">
+                        <img src="assets/icons/react.png" alt="React" onerror="this.parentElement.innerHTML='⚛️'">
+                    </div>
+                    <div class="tech-name">React</div>
+                </div>
+                <div class="tech-badge">
+                    <div class="tech-icon">
+                        <img src="assets/icons/typescript.svg" alt="TypeScript"
+                            onerror="this.parentElement.innerHTML='📘'">
+                    </div>
+                    <div class="tech-name">TypeScript</div>
+                </div>
+                <div class="tech-badge">
+                    <div class="tech-icon">
+                        <img src="assets/icons/rxjs.svg" alt="RxJS" onerror="this.parentElement.innerHTML='🔄'">
+                    </div>
+                    <div class="tech-name">RxJS</div>
+                </div>
+                <div class="tech-badge">
+                    <div class="tech-icon">
+                        <img src="assets/icons/tailwind.png" alt="Tailwind"
+                            onerror="this.parentElement.innerHTML='📘'">
+                    </div>
+                <div class="tech-name">Tailwind</div>
+                </div>
+                <div class="tech-badge">
+                    <div class="tech-icon">
+                        <img src="assets/icons/dotnet.png" alt=".NET" onerror="this.parentElement.innerHTML='🔷'">
+                    </div>
+                    <div class="tech-name">.NET APIs</div>
+                </div>
+                <div class="tech-badge">
+                    <div class="tech-icon">
+                        <img src="assets/icons/java.svg" alt="Java" onerror="this.parentElement.innerHTML='☕'">
+                    </div>
+                    <div class="tech-name">Java</div>
+                </div>
+                <div class="tech-badge">
+                    <div class="tech-icon">
+                        <img src="assets/icons/microservices.svg" alt="Microservices"
+                        onerror="this.parentElement.innerHTML='🔗'">
+                    </div>
+                    <div class="tech-name">Microservices</div>
+                </div>
+                <div class="tech-badge">
+                    <div class="tech-icon">
+                        <img src="assets/icons/signalr.png" alt="SignalR" onerror="this.parentElement.innerHTML='📡'">
+                    </div>
+                    <div class="tech-name">SignalR</div>
+                </div>
+                <div class="tech-badge">
+                    <div class="tech-icon">
+                        <img src="assets/icons/odata.png" alt="OData" onerror="this.parentElement.innerHTML='💾'">
+                    </div>
+                    <div class="tech-name">OData</div>
+                </div>
+                <div class="tech-badge">
+                    <div class="tech-icon">
+                        <img src="assets/icons/devextreme.png" alt="DevExtreme"
+                            onerror="this.parentElement.innerHTML='📊'">
+                    </div>
+                    <div class="tech-name">DevExtreme</div>
+                </div>
+                <div class="tech-badge">
+                    <div class="tech-icon">
+                        <img src="assets/icons/docker.png" alt="Docker" onerror="this.parentElement.innerHTML='🐳'">
+                    </div>
+                    <div class="tech-name">Docker</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile & Cross-Platform Development -->
+    <section id="mobile">
+        <div class="container">
+            <div class="section-header">
+                <h2>Mobile & Cross-Platform Development</h2>
+                <p>Building responsive applications with native mobile capabilities</p>
+            </div>
+            <div class="mobile-grid">
+                <div class="mobile-card">
+                    <img src="assets/mobile/responsive.svg" alt="Responsive" class="mobile-icon">
+                    <h3>Responsive Web Applications</h3>
+                    <p>
+                        Designing fully responsive applications that adapt seamlessly to desktop, tablet, and mobile
+                        devices.
+                        Ensuring optimal user experience across all screen sizes and resolutions.
+                    </p>
+                </div>
+                <div class="mobile-card">
+                    <img src="assets/mobile/capacitor.svg" alt="Capacitor" class="mobile-icon">
+                    <h3>Capacitor & Native Functionality</h3>
+                    <p>
+                        Building hybrid mobile applications using Capacitor to access native device features like
+                        notifications,
+                        camera, storage, geolocation, and more while maintaining a single codebase.
+                    </p>
+                </div>
+                <div class="mobile-card">
+                    <img src="assets/mobile/crossplatform.svg" alt="Cross-Platform" class="mobile-icon">
+                    <h3>Cross-Platform Delivery</h3>
+                    <p>
+                        Ensuring consistent user experience across web and mobile platforms while leveraging shared
+                        code.
+                        Deploying applications to iOS, Android, and web from a unified Angular codebase.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools & Utilities -->
+    <section id="tools">
+        <div class="container">
+            <div class="section-header">
+                <h2>Tools & Utilities</h2>
+                <p>Development tools and utilities that enhance my workflow</p>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <img src="assets/tools/vscode.png" alt="VS Code" class="tool-image"
+                        onerror="this.style.display='none'">
+                    <div class="tool-content">
+                        <h3>VS Code</h3>
+                        <p>
+                            Primary code editor with extensions for Angular, TypeScript, and Git integration.
+                            Configured for maximum productivity.
+                        </p>
+                    </div>
+                </div>
+                <a href="https://edinlonic1.github.io/payload-handler/" target="_blank" class="tool-card">
+                    <img src="assets/tools/json-parser.png" alt="JSON Parser" class="tool-image"
+                        onerror="this.style.display='none'">
+                    <div class="tool-content">
+                        <h3>JSON Parsing Utility</h3>
+                        <p>
+                            A small internal tool I built to quickly parse and inspect complex JSON structures
+                            while debugging APIs and data responses. Click here to try it out!
+                        </p>
+                    </div>
+                </a>
+                <div class="tool-card">
+                    <img src="assets/tools/chrome-devtools.png" alt="Chrome DevTools" class="tool-image"
+                        onerror="this.style.display='none'">
+                    <div class="tool-content">
+                        <h3>Chrome DevTools</h3>
+                        <p>
+                            Advanced debugging and performance inspection. Profiling performance,
+                            analyzing network requests, and debugging complex UI issues.
+                        </p>
+                    </div>
+                </div>
+                <div class="tool-card">
+                    <img src="assets/tools/git.png" alt="Git" class="tool-image" onerror="this.style.display='none'">
+                    <div class="tool-content">
+                        <h3>Git</h3>
+                        <p>
+                            Version control and collaboration. Managing branches, merges, and maintaining
+                            clean commit history for team projects.
+                        </p>
+                    </div>
+                </div>
+                <div class="tool-card">
+                    <img src="assets/tools/docker.png" alt="Docker" class="tool-image"
+                        onerror="this.style.display='none'">
+                    <div class="tool-content">
+                        <h3>Docker</h3>
+                        <p>
+                            Running development environments and services. Containerizing applications
+                            for consistent development and deployment.
+                        </p>
+                    </div>
+                </div>
+                <div class="tool-card">
+                    <img src="assets/tools/postman.png" alt="Postman" class="tool-image"
+                        onerror="this.style.display='none'">
+                    <div class="tool-content">
+                        <h3>Postman / API Tools</h3>
+                        <p>
+                            Testing and debugging APIs. Creating test collections and validating
+                            API responses during integration work.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI-Assisted Development & Modern Engineering -->
+    <section id="ai-development">
+        <div class="container">
+            <div class="section-header">
+                <h2>AI-Assisted Development & Modern Engineering</h2>
+                <p>Leveraging modern AI tools to accelerate development and solve complex problems</p>
+            </div>
+            <div class="ai-grid">
+                <div class="ai-card">
+                    <img src="assets/ai/ai-robot.svg" alt="AI" class="ai-icon">
+                    <h3>AI-Assisted Development</h3>
+                    <p>
+                        Using AI tools to accelerate development while maintaining high engineering standards.
+                        Combining AI assistance with critical thinking to deliver quality code faster.
+                    </p>
+                </div>
+                <div class="ai-card">
+                    <img src="assets/ai/brain.svg" alt="Brain" class="ai-icon">
+                    <h3>Agentic AI Exploration</h3>
+                    <p>
+                        Actively learning and experimenting with agent-based development workflows and automation.
+                        Exploring how AI agents can enhance development productivity.
+                    </p>
+                </div>
+                <div class="ai-card">
+                    <img src="assets/ai/copilot.svg" alt="Copilot" class="ai-icon">
+                    <h3>GitHub Copilot</h3>
+                    <p>
+                        Using Copilot to speed up coding tasks, scaffolding and repetitive work while focusing
+                        on architecture and problem solving. Enhancing productivity on routine coding tasks.
+                    </p>
+                </div>
+                <div class="ai-card">
+                    <img src="assets/ai/lightning.svg" alt="Lightning" class="ai-icon">
+                    <h3>Claude Code</h3>
+                    <p>
+                        Using Claude Code for complex reasoning, architecture exploration and generating structured
+                        solutions.
+                        Leveraging advanced AI for technical decision making and code design.
+                    </p>
+                </div>
+                <div class="ai-card">
+                    <img src="assets/ai/rocket.svg" alt="Rocket" class="ai-icon">
+                    <h3>Rapid High-Quality Delivery</h3>
+                    <p>
+                        Combining AI assistance with engineering experience to deliver solutions faster while
+                        maintaining
+                        code quality. Balancing speed with craftsmanship.
+                    </p>
+                </div>
+                <div class="ai-card">
+                    <img src="assets/ai/learning.svg" alt="Learning" class="ai-icon">
+                    <h3>Continuous Learning</h3>
+                    <p>
+                        Constantly exploring new tools, frameworks and development methodologies to stay up to date
+                        with modern engineering practices. Adapting to the evolving development landscape.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Systems I Build -->
+    <section id="systems">
+        <div class="container">
+            <div class="section-header">
+                <h2>Systems I Build</h2>
+                <p>Professional enterprise applications and platforms</p>
+            </div>
+            <div class="systems-grid">
+                <div class="system-card">
+                    <img src="assets/systems/realtime.svg" alt="Real-Time" class="system-icon">
+                    <h3>Real-Time Collaboration Platforms</h3>
+                    <p>
+                        Reactive interfaces with live updates using WebSockets and event streams.
+                        Building seamless real-time experiences for team collaboration and data synchronization.
+                    </p>
+                </div>
+                <div class="system-card">
+                    <img src="assets/systems/dashboard.svg" alt="Dashboard" class="system-icon">
+                    <h3>Enterprise Data Dashboards</h3>
+                    <p>
+                        Large-scale dashboards with complex data grids, advanced filtering systems, and
+                        performance-optimized UI
+                        capable of handling thousands of records with smooth interactions.
+                    </p>
+                </div>
+                <div class="system-card">
+                    <img src="assets/systems/multitenant.svg" alt="Multi-Tenant" class="system-icon">
+                    <h3>Multi-Tenant SaaS Platforms</h3>
+                    <p>
+                        Applications supporting multiple tenants, workspaces, and scalable architecture.
+                        Building systems that handle diverse user permissions and isolated data environments.
+                    </p>
+                </div>
+                <div class="system-card">
+                    <img src="assets/systems/notifications.svg" alt="Notifications" class="system-icon">
+                    <h3>Task and Notification Systems</h3>
+                    <p>
+                        Comprehensive reminder systems with due dates, priority management, and real-time notifications.
+                        Creating intuitive task management interfaces with complex state handling.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Engineering Challenges -->
+    <section id="challenges">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Engineering Challenges</h2>
+                <p>Real technical problems solved and lessons learned</p>
+            </div>
+            <div class="challenges-grid">
+                <div class="challenge-card">
+                    <img src="assets/challenges/realtime-sync.svg" alt="Real-Time" class="challenge-icon">
+                    <h3>Real-Time UI Synchronization</h3>
+
+                    <div class="challenge-section">
+                        <div class="challenge-label">Problem</div>
+                        <div class="challenge-text">
+                            Users needed to see updates in real time without refreshing the page.
+                            Multiple users working simultaneously required instant synchronization across all connected
+                            clients.
+                        </div>
+                    </div>
+
+                    <div class="challenge-section">
+                        <div class="challenge-label">Solution</div>
+                        <div class="challenge-text">
+                            Implemented reactive UI updates using SignalR and RxJS streams so changes propagate
+                            instantly.
+                            Built observable streams that listen for server events and automatically update the UI
+                            state.
+                        </div>
+                    </div>
+
+                    <div class="challenge-technologies">
+                        <span class="tech-tag">Angular</span>
+                        <span class="tech-tag">RxJS</span>
+                        <span class="tech-tag">SignalR</span>
+                    </div>
+                </div>
+
+                <div class="challenge-card">
+                    <img src="assets/challenges/performance.svg" alt="Performance" class="challenge-icon">
+                    <h3>High-Performance Data Grid Rendering</h3>
+
+                    <div class="challenge-section">
+                        <div class="challenge-label">Problem</div>
+                        <div class="challenge-text">
+                            Large enterprise datasets caused significant UI lag and slow rendering times.
+                            Users experienced freezing when loading thousands of rows in data grids.
+                        </div>
+                    </div>
+
+                    <div class="challenge-section">
+                        <div class="challenge-label">Solution</div>
+                        <div class="challenge-text">
+                            Optimized Angular change detection strategies, implemented virtual scrolling, and refined
+                            data loading patterns.
+                            Configured DevExtreme grids to handle thousands of rows efficiently with lazy loading.
+                        </div>
+                    </div>
+
+                    <div class="challenge-technologies">
+                        <span class="tech-tag">Angular</span>
+                        <span class="tech-tag">DevExtreme</span>
+                        <span class="tech-tag">TypeScript</span>
+                    </div>
+                </div>
+
+                <div class="challenge-card">
+                    <img src="assets/challenges/architecture.svg" alt="Architecture" class="challenge-icon">
+                    <h3>Multi-Tenant Board Architecture</h3>
+
+                    <div class="challenge-section">
+                        <div class="challenge-label">Problem</div>
+                        <div class="challenge-text">
+                            Application needed to support multiple tenants with boards and cards while keeping data
+                            isolated and scalable.
+                            Required efficient data fetching without compromising security or performance.
+                        </div>
+                    </div>
+
+                    <div class="challenge-section">
+                        <div class="challenge-label">Solution</div>
+                        <div class="challenge-text">
+                            Designed a scalable frontend architecture with proper data isolation patterns.
+                            Optimized API interactions using caching strategies and efficient state management to
+                            minimize network requests.
+                        </div>
+                    </div>
+
+                    <div class="challenge-technologies">
+                        <span class="tech-tag">Angular</span>
+                        <span class="tech-tag">.NET APIs</span>
+                        <span class="tech-tag">Microservices</span>
+                    </div>
+                </div>
+
+                <div class="challenge-card">
+                    <img src="assets/challenges/debugging.svg" alt="Debugging" class="challenge-icon">
+                    <h3>Production Bug Investigation</h3>
+
+                    <div class="challenge-section">
+                        <div class="challenge-label">Problem</div>
+                        <div class="challenge-text">
+                            Customer-reported issues that were difficult to reproduce in local development environments.
+                            Intermittent bugs occurring only under specific production conditions.
+                        </div>
+                    </div>
+
+                    <div class="challenge-section">
+                        <div class="challenge-label">Solution</div>
+                        <div class="challenge-text">
+                            Analyzed application logs, network requests, and error traces to identify patterns.
+                            Reproduced edge cases locally and traced issues across frontend and backend systems to
+                            pinpoint root causes.
+                        </div>
+                    </div>
+
+                    <div class="challenge-technologies">
+                        <span class="tech-tag">Chrome DevTools</span>
+                        <span class="tech-tag">Logging Tools</span>
+                        <span class="tech-tag">API Debugging</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engineering Strengths -->
+    <section id="strengths">
+        <div class="container">
+            <div class="section-header">
+                <h2>Engineering Strengths</h2>
+            </div>
+            <div class="strengths-list">
+                <div class="strength-item">
+                    <img src="assets/icons/checkmark.svg" alt="Check" class="strength-icon">
+                    <span class="strength-text">Scalable Angular architecture</span>
+                </div>
+                <div class="strength-item">
+                    <img src="assets/icons/checkmark.svg" alt="Check" class="strength-icon">
+                    <span class="strength-text">Reactive state management with RxJS</span>
+                </div>
+                <div class="strength-item">
+                    <img src="assets/icons/checkmark.svg" alt="Check" class="strength-icon">
+                    <span class="strength-text">Real-time UI updates</span>
+                </div>
+                <div class="strength-item">
+                    <img src="assets/icons/checkmark.svg" alt="Check" class="strength-icon">
+                    <span class="strength-text">High-performance frontend optimization</span>
+                </div>
+                <div class="strength-item">
+                    <img src="assets/icons/checkmark.svg" alt="Check" class="strength-icon">
+                    <span class="strength-text">Complex enterprise UI components</span>
+                </div>
+                <div class="strength-item">
+                    <img src="assets/icons/checkmark.svg" alt="Check" class="strength-icon">
+                    <span class="strength-text">Clean maintainable codebases</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership & Collaboration -->
+    <section id="leadership">
+        <div class="container">
+            <div class="section-header">
+                <h2>Leadership & Collaboration</h2>
+                <p>Contributing beyond code through mentorship and engineering excellence</p>
+            </div>
+            <div class="leadership-grid">
+                <div class="leadership-card">
+                    <img src="assets/leadership/mentorship.svg" alt="Mentorship" class="leadership-icon">
+                    <h3>Mentorship & Developer Growth</h3>
+                    <p>
+                        Supporting junior developers through code reviews, technical guidance and knowledge sharing.
+                        Helping team members grow their skills and advance their careers.
+                    </p>
+                </div>
+                <div class="leadership-card">
+                    <img src="assets/leadership/technical-leadership.svg" alt="Technical Leadership"
+                        class="leadership-icon">
+                    <h3>Technical Leadership</h3>
+                    <p>
+                        Helping guide architecture decisions and maintaining high engineering standards.
+                        Setting technical direction for complex frontend systems.
+                    </p>
+                </div>
+                <div class="leadership-card">
+                    <img src="assets/leadership/process.svg" alt="Process" class="leadership-icon">
+                    <h3>Improving Engineering Processes</h3>
+                    <p>
+                        Introducing improvements to workflows, tooling and development practices that increase team
+                        productivity.
+                        Identifying bottlenecks and implementing practical solutions.
+                    </p>
+                </div>
+                <div class="leadership-card">
+                    <img src="assets/leadership/planning.svg" alt="Planning" class="leadership-icon">
+                    <h3>Quarterly Planning & Roadmapping</h3>
+                    <p>
+                        Contributing to technical planning, estimating work and aligning development with business
+                        goals.
+                        Helping translate requirements into actionable technical tasks.
+                    </p>
+                </div>
+                <div class="leadership-card">
+                    <img src="assets/leadership/presentation.svg" alt="Presentation" class="leadership-icon">
+                    <h3>Technical Presentations</h3>
+                    <p>
+                        Presenting architecture ideas, technical concepts and solutions to team members and
+                        stakeholders.
+                        Making complex technical topics accessible and actionable.
+                    </p>
+                </div>
+                <div class="leadership-card">
+                    <img src="assets/leadership/collaboration.svg" alt="Collaboration" class="leadership-icon">
+                    <h3>Cross-Team Collaboration</h3>
+                    <p>
+                        Working closely with backend developers, product managers and designers to deliver reliable
+                        systems.
+                        Bridging technical and business perspectives effectively.
+                    </p>
+                </div>
+                <div class="leadership-card">
+                    <img src="assets/leadership/conflict-resolution.svg" alt="Conflict Resolution"
+                        class="leadership-icon">
+                    <h3>Conflict Resolution</h3>
+                    <p>
+                        Helping resolve technical disagreements and guiding discussions toward practical, maintainable
+                        solutions.
+                        Fostering collaborative decision-making and consensus building.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Debugging & Problem Solving -->
+    <section id="debugging">
+        <div class="container">
+            <div class="section-header">
+                <h2>Debugging & Problem Solving</h2>
+                <p>Systematic approach to solving complex engineering challenges</p>
+            </div>
+            <div class="debugging-grid">
+                <div class="debugging-card">
+                    <img src="assets/debugging/magnifying-glass.svg" alt="Search" class="debugging-icon">
+                    <h3>Deep Debugging Skills</h3>
+                    <p>
+                        Strong ability to investigate complex bugs and trace issues across frontend, backend and APIs.
+                        Using browser tools, logs, and systematic investigation to identify root causes.
+                    </p>
+                </div>
+                <div class="debugging-card">
+                    <img src="assets/debugging/target.svg" alt="Target" class="debugging-icon">
+                    <h3>Edge Case Handling</h3>
+                    <p>
+                        I enjoy identifying edge cases and designing systems that behave correctly even in unexpected
+                        scenarios.
+                        Thinking through boundary conditions and error states proactively.
+                    </p>
+                </div>
+                <div class="debugging-card">
+                    <img src="assets/debugging/alert.svg" alt="Alert" class="debugging-icon">
+                    <h3>Production Issue Investigation</h3>
+                    <p>
+                        Experience diagnosing difficult-to-reproduce issues reported by customers in production
+                        environments.
+                        Working under pressure to resolve critical problems quickly.
+                    </p>
+                </div>
+                <div class="debugging-card">
+                    <img src="assets/debugging/puzzle.svg" alt="Puzzle" class="debugging-icon">
+                    <h3>Systematic Problem Solving</h3>
+                    <p>
+                        Breaking down complex problems into smaller parts to identify root causes quickly.
+                        Using methodical approaches like binary search debugging and hypothesis testing.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Focus -->
+    <section id="customer-focus">
+        <div class="container">
+            <div class="section-header">
+                <h2>Customer Focus</h2>
+                <p>Building solutions that genuinely solve user problems</p>
+            </div>
+            <div class="customer-focus-content">
+                <div class="customer-grid">
+                    <div class="customer-card">
+                        <img src="assets/customer/megaphone.svg" alt="Megaphone" class="customer-icon">
+                        <h3>Customer Feedback Driven Development</h3>
+                        <p>
+                            I regularly review user feedback and bug reports to understand where the product can
+                            improve.
+                            Real customer insights drive better technical decisions.
+                        </p>
+                    </div>
+                    <div class="customer-card">
+                        <img src="assets/customer/heart.svg" alt="Heart" class="customer-icon">
+                        <h3>User Empathy</h3>
+                        <p>
+                            Understanding how users interact with the system helps me design better solutions.
+                            Considering user experience in every technical decision I make.
+                        </p>
+                    </div>
+                    <div class="customer-card">
+                        <img src="assets/customer/bullseye.svg" alt="Target" class="customer-icon">
+                        <h3>Product Mindset</h3>
+                        <p>
+                            I believe engineering decisions should always consider the impact on customer satisfaction.
+                            Balancing technical excellence with delivering real value.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- On-Call & Incident Management -->
+    <section id="oncall">
+        <div class="container">
+            <div class="section-header">
+                <h2>On-Call & Incident Management</h2>
+                <p>Ensuring production stability and rapid incident response</p>
+            </div>
+            <div class="oncall-content">
+                <div class="oncall-card">
+                    <div class="oncall-header">
+                        <img src="assets/oncall/siren.svg" alt="Alert" class="oncall-icon">
+                        <h3>On-Call Rotations & Production Incident Management</h3>
+                    </div>
+
+                    <div class="oncall-description">
+                        I regularly participated in on-call rotations, being responsible for monitoring production
+                        systems
+                        and quickly responding to incidents. During my on-call weeks, I remained ready at my workstation
+                        to investigate and resolve critical issues, ensuring minimal downtime and maintaining high
+                        service
+                        reliability for our customers.
+                    </div>
+
+                    <div class="oncall-highlights">
+                        <div class="oncall-highlight">
+                            <img src="assets/oncall/clock.svg" alt="Clock" class="highlight-icon">
+                            <span class="highlight-text">
+                                Active monitoring and rapid response during on-call shifts to minimize impact on users
+                            </span>
+                        </div>
+                        <div class="oncall-highlight">
+                            <img src="assets/oncall/wrench.svg" alt="Wrench" class="highlight-icon">
+                            <span class="highlight-text">
+                                Diagnosing and resolving production issues under time pressure while maintaining clear
+                                communication
+                            </span>
+                        </div>
+                        <div class="oncall-highlight">
+                            <img src="assets/oncall/shield.svg" alt="Shield" class="highlight-icon">
+                            <span class="highlight-text">
+                                Ensuring system stability and reliability for customers through proactive monitoring
+                            </span>
+                        </div>
+                        <div class="oncall-highlight">
+                            <img src="assets/oncall/team.svg" alt="Team" class="highlight-icon">
+                            <span class="highlight-text">
+                                Collaborating with backend, DevOps, and product teams to mitigate incidents quickly
+                            </span>
+                        </div>
+                        <div class="oncall-highlight">
+                            <img src="assets/oncall/document.svg" alt="Document" class="highlight-icon">
+                            <span class="highlight-text">
+                                Maintaining detailed incident logs and documenting solutions for future reference and
+                                team knowledge
+                            </span>
+                        </div>
+                        <div class="oncall-highlight">
+                            <img src="assets/oncall/chart.svg" alt="Chart" class="highlight-icon">
+                            <span class="highlight-text">
+                                Analyzing incident patterns to identify root causes and prevent recurring issues
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engineering Principles -->
+    <section id="principles">
+        <div class="container">
+            <div class="section-header">
+                <h2>Engineering Principles</h2>
+                <p>Philosophy that guides my development approach</p>
+            </div>
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <p>Build systems that scale, not just features</p>
+                </div>
+                <div class="principle-card">
+                    <p>Prefer reactive patterns over imperative state</p>
+                </div>
+                <div class="principle-card">
+                    <p>Focus on maintainable architecture</p>
+                </div>
+                <div class="principle-card">
+                    <p>Design predictable and testable UI systems</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2>Work Experience</h2>
+                <p>Professional journey and key achievements</p>
+            </div>
+
+            <div class="experience-highlight">
+                <p>
+                    <strong>10 years of professional experience</strong> delivering high-quality enterprise
+                    software for global clients. 
+                    The last 6 years have been spent collaborating with international teams in fully English-speaking environments,
+                    conducting technical discussions, and presenting solutions professionally.
+                </p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div class="experience-company">Genetec</div>
+                            <div class="experience-role">Team Lead / Senior Software Developer</div>
+                            <div class="experience-dates">2023 - Present</div>
+                        </div>
+                        <ul class="experience-details">
+                            <li>Serving as Team Lead while continuing hands-on development work</li>
+                            <li>Creating individual growth and development plans for team members aligned with company goals</li>
+                            <li>Conducting 360° performance reviews and providing constructive feedback</li>
+                            <li>Participating in quarterly planning sessions and business reviews</li>
+                            <li>Helping resolve complex technical challenges and supporting the team during difficult situations</li>
+                            <li>Leading Performance Improvement Programs (PIPs) and mentoring developers</li>
+                            <li>Ensuring applications and development practices comply with strict security and compliance standards</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div class="experience-company">Genetec</div>
+                            <div class="experience-role">Senior Software Developer</div>
+                            <div class="experience-dates">2019 - 2023</div>
+                        </div>
+                        <ul class="experience-details">
+                            <li>Developing and maintaining a large-scale Angular application in a multi-tenant enterprise environment</li>
+                            <li>Implementing real-time, event-driven functionality using SignalR and reactive programming</li>
+                            <li>Integrating blockchain-based mechanisms to ensure data integrity with full history tracking and rollback capability</li>
+                            <li>Applying Domain-Driven Design principles to maintain scalable and maintainable architecture</li>
+                            <li>Participating in the full software lifecycle: development, testing, deployment, and production support</li>
+                            <li>Mentoring junior developers and contributing to architecture discussions and best practices</li>
+                            <li>Estimating and delivering complex features</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div class="experience-company">Softray Solutions LLC</div>
+                            <div class="experience-role">Full Stack Software Developer</div>
+                            <div class="experience-dates">2016 - 2019</div>
+                        </div>
+                        <ul class="experience-details">
+                            <li>Contributed to large-scale enterprise systems for U.S. clients in healthcare and highway tolling</li>
+                            <li>Worked on full stack development using Angular and .NET</li>
+                            <li>Participated in technical interviews and candidate evaluations</li>
+                            <li>Mentored interns by explaining project architecture and reviewing code</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div class="experience-company">Mostar Design</div>
+                            <div class="experience-role">Software Developer Intern</div>
+                            <div class="experience-dates">2016</div>
+                        </div>
+                        <ul class="experience-details">
+                            <li>Completed a full-time internship working on web applications using Angular 1.5 and .NET</li>
+                            <li>Participated in development of real-world production systems</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Life & Interests -->
+    <section id="interests">
+        <div class="container">
+            <div class="section-header">
+                <h2>Life & Interests</h2>
+                <p>Beyond code: hobbies and passions that inspire creativity and balance</p>
+            </div>
+            <div class="interests-grid">
+                <div class="interest-card">
+                    <img src="assets/interests/gaming.svg" alt="Gaming" class="interest-icon">
+                    <h3>Gaming</h3>
+                    <p>
+                        Enjoy engaging in strategic and cooperative games to exercise problem-solving, creativity,
+                        and teamwork in virtual worlds. Gaming provides both relaxation and mental challenges.
+                    </p>
+                </div>
+                <div class="interest-card">
+                    <img src="assets/interests/sports.svg" alt="Sports" class="interest-icon">
+                    <h3>Sports & Social Life</h3>
+                    <p>
+                        Watching sports, spending quality time with friends and family, and staying socially connected.
+                        Maintaining a healthy work-life balance through social activities and relationships.
+                    </p>
+                </div>
+                <div class="interest-card">
+                    <img src="assets/interests/travel.svg" alt="Travel" class="interest-icon">
+                    <h3>Travel & Culture</h3>
+                    <p>
+                        Exploring new countries, learning about different cultures, and experiencing new environments.
+                        Travel broadens perspectives and provides inspiration for creative thinking.
+                    </p>
+                </div>
+                <div class="interest-card">
+                    <img src="assets/interests/food.svg" alt="Food" class="interest-icon">
+                    <h3>Food & Culinary Exploration</h3>
+                    <p>
+                        Trying new cuisines and understanding local food cultures while traveling.
+                        Food is a gateway to experiencing and appreciating diverse cultures and traditions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Let's discuss your next project</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-links">
+                    <a href="mailto:edinlonic94@gmail.com" class="contact-link">
+                        <img src="assets/contact/email.svg" alt="Email" class="contact-icon">
+                        <span>edinlonic94@gmail.com</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/edin-lonic/" target="_blank" class="contact-link">
+                        <img src="assets/contact/linkedin.svg" alt="LinkedIn" class="contact-icon">
+                        <span>linkedin.com/in/edin-lonic</span>
+                    </a>
+                </div>
+                <div class="availability">
+                    ✨ Available for remote roles
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Edin Lonic. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ===== SCROLL ANIMATION =====
+        // Observe sections and add 'visible' class when they enter viewport
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections except hero (which is visible by default)
+        document.querySelectorAll('section:not(.hero)').forEach(section => {
+            observer.observe(section);
+        });
+
+        // ===== SMOOTH SCROLL FOR BUTTONS =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
