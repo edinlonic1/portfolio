@@ -686,7 +686,7 @@
 
         .customer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
         }
 
@@ -1063,6 +1063,10 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .customer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .interests-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -1314,6 +1318,7 @@
     </section>
 
     <!-- Engineering Profile -->
+
     <section id="profile">
         <div class="container">
             <div class="section-header">
@@ -1333,6 +1338,7 @@
     </section>
 
     <!-- Core Technologies -->
+
     <section id="technologies">
         <div class="container">
             <div class="section-header">
@@ -1421,45 +1427,139 @@
     </section>
 
     <!-- Mobile & Cross-Platform Development -->
-    <section id="mobile">
+
+    <section id="strengths">
         <div class="container">
             <div class="section-header">
-                <h2>Mobile & Cross-Platform Development</h2>
-                <p>Building responsive applications with native mobile capabilities</p>
+                <h2>Engineering Strengths</h2>
             </div>
-            <div class="mobile-grid">
-                <div class="mobile-card">
-                    <img src="assets/mobile/responsive.svg" alt="Responsive" class="mobile-icon">
-                    <h3>Responsive Web Applications</h3>
+            <div class="strengths-list">
+                <div class="strength-item">
+                    <img src="assets/icons/checkmark.svg" alt="Check" class="strength-icon">
+                    <span class="strength-text">Scalable Angular architecture</span>
+                </div>
+                <div class="strength-item">
+                    <img src="assets/icons/checkmark.svg" alt="Check" class="strength-icon">
+                    <span class="strength-text">Reactive state management with RxJS</span>
+                </div>
+                <div class="strength-item">
+                    <img src="assets/icons/checkmark.svg" alt="Check" class="strength-icon">
+                    <span class="strength-text">Real-time UI updates</span>
+                </div>
+                <div class="strength-item">
+                    <img src="assets/icons/checkmark.svg" alt="Check" class="strength-icon">
+                    <span class="strength-text">High-performance frontend optimization</span>
+                </div>
+                <div class="strength-item">
+                    <img src="assets/icons/checkmark.svg" alt="Check" class="strength-icon">
+                    <span class="strength-text">Complex enterprise UI components</span>
+                </div>
+                <div class="strength-item">
+                    <img src="assets/icons/checkmark.svg" alt="Check" class="strength-icon">
+                    <span class="strength-text">Clean maintainable codebases</span>
+                </div>
+                <div class="strength-item">
+                    <img src="assets/icons/checkmark.svg" alt="Check" class="strength-icon">
+                    <span class="strength-text">Strong ownership and accountability</span>
+                </div>
+                <div class="strength-item">
+                    <img src="assets/icons/checkmark.svg" alt="Check" class="strength-icon">
+                    <span class="strength-text">Clear and proactive communication</span>
+                </div>
+                <div class="strength-item">
+                    <img src="assets/icons/checkmark.svg" alt="Check" class="strength-icon">
+                    <span class="strength-text">Persistence through difficult challenges</span>
+                </div>
+                <div class="strength-item">
+                    <img src="assets/icons/checkmark.svg" alt="Check" class="strength-icon">
+                    <span class="strength-text">Thoughtful planning and execution</span>
+                </div>
+                <div class="strength-item">
+                    <img src="assets/icons/checkmark.svg" alt="Check" class="strength-icon">
+                    <span class="strength-text">Deep understanding of systems and concepts</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership & Collaboration -->
+
+    <section id="leadership">
+        <div class="container">
+            <div class="section-header">
+                <h2>Leadership & Collaboration</h2>
+                <p>Contributing beyond code through mentorship and engineering excellence</p>
+            </div>
+            <div class="leadership-grid">
+                <div class="leadership-card">
+                    <img src="assets/leadership/mentorship.svg" alt="Mentorship" class="leadership-icon">
+                    <h3>Mentorship & Developer Growth</h3>
                     <p>
-                        Designing fully responsive applications that adapt seamlessly to desktop, tablet, and mobile
-                        devices.
-                        Ensuring optimal user experience across all screen sizes and resolutions.
+                        Supporting junior developers through code reviews, technical guidance and knowledge sharing.
+                        Helping team members grow their skills and advance their careers.
                     </p>
                 </div>
-                <div class="mobile-card">
-                    <img src="assets/mobile/capacitor.svg" alt="Capacitor" class="mobile-icon">
-                    <h3>Capacitor & Native Functionality</h3>
+                <div class="leadership-card">
+                    <img src="assets/leadership/technical-leadership.svg" alt="Technical Leadership"
+                        class="leadership-icon">
+                    <h3>Technical Leadership</h3>
                     <p>
-                        Building hybrid mobile applications using Capacitor to access native device features like
-                        notifications,
-                        camera, storage, geolocation, and more while maintaining a single codebase.
+                        Helping guide architecture decisions and maintaining high engineering standards.
+                        Setting technical direction for complex frontend systems.
                     </p>
                 </div>
-                <div class="mobile-card">
-                    <img src="assets/mobile/crossplatform.svg" alt="Cross-Platform" class="mobile-icon">
-                    <h3>Cross-Platform Delivery</h3>
+                <div class="leadership-card">
+                    <img src="assets/leadership/process.svg" alt="Process" class="leadership-icon">
+                    <h3>Improving Engineering Processes</h3>
                     <p>
-                        Ensuring consistent user experience across web and mobile platforms while leveraging shared
-                        code.
-                        Deploying applications to iOS, Android, and web from a unified Angular codebase.
+                        Introducing improvements to workflows, tooling and development practices that increase team
+                        productivity.
+                        Identifying bottlenecks and implementing practical solutions.
+                    </p>
+                </div>
+                <div class="leadership-card">
+                    <img src="assets/leadership/planning.svg" alt="Planning" class="leadership-icon">
+                    <h3>Quarterly Planning & Roadmapping</h3>
+                    <p>
+                        Contributing to technical planning, estimating work and aligning development with business
+                        goals.
+                        Helping translate requirements into actionable technical tasks.
+                    </p>
+                </div>
+                <div class="leadership-card">
+                    <img src="assets/leadership/presentation.svg" alt="Presentation" class="leadership-icon">
+                    <h3>Technical Presentations</h3>
+                    <p>
+                        Presenting architecture ideas, technical concepts and solutions to team members and
+                        stakeholders.
+                        Making complex technical topics accessible and actionable.
+                    </p>
+                </div>
+                <div class="leadership-card">
+                    <img src="assets/leadership/collaboration.svg" alt="Collaboration" class="leadership-icon">
+                    <h3>Cross-Team Collaboration</h3>
+                    <p>
+                        Working closely with backend developers, product managers and designers to deliver reliable
+                        systems.
+                        Bridging technical and business perspectives effectively.
+                    </p>
+                </div>
+                <div class="leadership-card">
+                    <img src="assets/leadership/conflict-resolution.svg" alt="Conflict Resolution"
+                        class="leadership-icon">
+                    <h3>Conflict Resolution</h3>
+                    <p>
+                        Helping resolve technical disagreements and guiding discussions toward practical, maintainable
+                        solutions.
+                        Fostering collaborative decision-making and consensus building.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Tools & Utilities -->
+    <!-- Debugging & Problem Solving -->
+
     <section id="tools">
         <div class="container">
             <div class="section-header">
@@ -1537,113 +1637,7 @@
     </section>
 
     <!-- AI-Assisted Development & Modern Engineering -->
-    <section id="ai-development">
-        <div class="container">
-            <div class="section-header">
-                <h2>AI-Assisted Development & Modern Engineering</h2>
-                <p>Leveraging modern AI tools to accelerate development and solve complex problems</p>
-            </div>
-            <div class="ai-grid">
-                <div class="ai-card">
-                    <img src="assets/ai/ai-robot.svg" alt="AI" class="ai-icon">
-                    <h3>AI-Assisted Development</h3>
-                    <p>
-                        Using AI tools to accelerate development while maintaining high engineering standards.
-                        Combining AI assistance with critical thinking to deliver quality code faster.
-                    </p>
-                </div>
-                <div class="ai-card">
-                    <img src="assets/ai/brain.svg" alt="Brain" class="ai-icon">
-                    <h3>Agentic AI Exploration</h3>
-                    <p>
-                        Actively learning and experimenting with agent-based development workflows and automation.
-                        Exploring how AI agents can enhance development productivity.
-                    </p>
-                </div>
-                <div class="ai-card">
-                    <img src="assets/ai/copilot.svg" alt="Copilot" class="ai-icon">
-                    <h3>GitHub Copilot</h3>
-                    <p>
-                        Using Copilot to speed up coding tasks, scaffolding and repetitive work while focusing
-                        on architecture and problem solving. Enhancing productivity on routine coding tasks.
-                    </p>
-                </div>
-                <div class="ai-card">
-                    <img src="assets/ai/lightning.svg" alt="Lightning" class="ai-icon">
-                    <h3>Claude Code</h3>
-                    <p>
-                        Using Claude Code for complex reasoning, architecture exploration and generating structured
-                        solutions.
-                        Leveraging advanced AI for technical decision making and code design.
-                    </p>
-                </div>
-                <div class="ai-card">
-                    <img src="assets/ai/rocket.svg" alt="Rocket" class="ai-icon">
-                    <h3>Rapid High-Quality Delivery</h3>
-                    <p>
-                        Combining AI assistance with engineering experience to deliver solutions faster while
-                        maintaining
-                        code quality. Balancing speed with craftsmanship.
-                    </p>
-                </div>
-                <div class="ai-card">
-                    <img src="assets/ai/learning.svg" alt="Learning" class="ai-icon">
-                    <h3>Continuous Learning</h3>
-                    <p>
-                        Constantly exploring new tools, frameworks and development methodologies to stay up to date
-                        with modern engineering practices. Adapting to the evolving development landscape.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Systems I Build -->
-    <section id="systems">
-        <div class="container">
-            <div class="section-header">
-                <h2>Systems I Build</h2>
-                <p>Professional enterprise applications and platforms</p>
-            </div>
-            <div class="systems-grid">
-                <div class="system-card">
-                    <img src="assets/systems/realtime.svg" alt="Real-Time" class="system-icon">
-                    <h3>Real-Time Collaboration Platforms</h3>
-                    <p>
-                        Reactive interfaces with live updates using WebSockets and event streams.
-                        Building seamless real-time experiences for team collaboration and data synchronization.
-                    </p>
-                </div>
-                <div class="system-card">
-                    <img src="assets/systems/dashboard.svg" alt="Dashboard" class="system-icon">
-                    <h3>Enterprise Data Dashboards</h3>
-                    <p>
-                        Large-scale dashboards with complex data grids, advanced filtering systems, and
-                        performance-optimized UI
-                        capable of handling thousands of records with smooth interactions.
-                    </p>
-                </div>
-                <div class="system-card">
-                    <img src="assets/systems/multitenant.svg" alt="Multi-Tenant" class="system-icon">
-                    <h3>Multi-Tenant SaaS Platforms</h3>
-                    <p>
-                        Applications supporting multiple tenants, workspaces, and scalable architecture.
-                        Building systems that handle diverse user permissions and isolated data environments.
-                    </p>
-                </div>
-                <div class="system-card">
-                    <img src="assets/systems/notifications.svg" alt="Notifications" class="system-icon">
-                    <h3>Task and Notification Systems</h3>
-                    <p>
-                        Comprehensive reminder systems with due dates, priority management, and real-time notifications.
-                        Creating intuitive task management interfaces with complex state handling.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Engineering Challenges -->
     <section id="challenges">
         <div class="container">
             <div class="section-header">
@@ -1770,116 +1764,7 @@
     </section>
 
     <!-- Engineering Strengths -->
-    <section id="strengths">
-        <div class="container">
-            <div class="section-header">
-                <h2>Engineering Strengths</h2>
-            </div>
-            <div class="strengths-list">
-                <div class="strength-item">
-                    <img src="assets/icons/checkmark.svg" alt="Check" class="strength-icon">
-                    <span class="strength-text">Scalable Angular architecture</span>
-                </div>
-                <div class="strength-item">
-                    <img src="assets/icons/checkmark.svg" alt="Check" class="strength-icon">
-                    <span class="strength-text">Reactive state management with RxJS</span>
-                </div>
-                <div class="strength-item">
-                    <img src="assets/icons/checkmark.svg" alt="Check" class="strength-icon">
-                    <span class="strength-text">Real-time UI updates</span>
-                </div>
-                <div class="strength-item">
-                    <img src="assets/icons/checkmark.svg" alt="Check" class="strength-icon">
-                    <span class="strength-text">High-performance frontend optimization</span>
-                </div>
-                <div class="strength-item">
-                    <img src="assets/icons/checkmark.svg" alt="Check" class="strength-icon">
-                    <span class="strength-text">Complex enterprise UI components</span>
-                </div>
-                <div class="strength-item">
-                    <img src="assets/icons/checkmark.svg" alt="Check" class="strength-icon">
-                    <span class="strength-text">Clean maintainable codebases</span>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Leadership & Collaboration -->
-    <section id="leadership">
-        <div class="container">
-            <div class="section-header">
-                <h2>Leadership & Collaboration</h2>
-                <p>Contributing beyond code through mentorship and engineering excellence</p>
-            </div>
-            <div class="leadership-grid">
-                <div class="leadership-card">
-                    <img src="assets/leadership/mentorship.svg" alt="Mentorship" class="leadership-icon">
-                    <h3>Mentorship & Developer Growth</h3>
-                    <p>
-                        Supporting junior developers through code reviews, technical guidance and knowledge sharing.
-                        Helping team members grow their skills and advance their careers.
-                    </p>
-                </div>
-                <div class="leadership-card">
-                    <img src="assets/leadership/technical-leadership.svg" alt="Technical Leadership"
-                        class="leadership-icon">
-                    <h3>Technical Leadership</h3>
-                    <p>
-                        Helping guide architecture decisions and maintaining high engineering standards.
-                        Setting technical direction for complex frontend systems.
-                    </p>
-                </div>
-                <div class="leadership-card">
-                    <img src="assets/leadership/process.svg" alt="Process" class="leadership-icon">
-                    <h3>Improving Engineering Processes</h3>
-                    <p>
-                        Introducing improvements to workflows, tooling and development practices that increase team
-                        productivity.
-                        Identifying bottlenecks and implementing practical solutions.
-                    </p>
-                </div>
-                <div class="leadership-card">
-                    <img src="assets/leadership/planning.svg" alt="Planning" class="leadership-icon">
-                    <h3>Quarterly Planning & Roadmapping</h3>
-                    <p>
-                        Contributing to technical planning, estimating work and aligning development with business
-                        goals.
-                        Helping translate requirements into actionable technical tasks.
-                    </p>
-                </div>
-                <div class="leadership-card">
-                    <img src="assets/leadership/presentation.svg" alt="Presentation" class="leadership-icon">
-                    <h3>Technical Presentations</h3>
-                    <p>
-                        Presenting architecture ideas, technical concepts and solutions to team members and
-                        stakeholders.
-                        Making complex technical topics accessible and actionable.
-                    </p>
-                </div>
-                <div class="leadership-card">
-                    <img src="assets/leadership/collaboration.svg" alt="Collaboration" class="leadership-icon">
-                    <h3>Cross-Team Collaboration</h3>
-                    <p>
-                        Working closely with backend developers, product managers and designers to deliver reliable
-                        systems.
-                        Bridging technical and business perspectives effectively.
-                    </p>
-                </div>
-                <div class="leadership-card">
-                    <img src="assets/leadership/conflict-resolution.svg" alt="Conflict Resolution"
-                        class="leadership-icon">
-                    <h3>Conflict Resolution</h3>
-                    <p>
-                        Helping resolve technical disagreements and guiding discussions toward practical, maintainable
-                        solutions.
-                        Fostering collaborative decision-making and consensus building.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Debugging & Problem Solving -->
     <section id="debugging">
         <div class="container">
             <div class="section-header">
@@ -1926,6 +1811,156 @@
     </section>
 
     <!-- Customer Focus -->
+
+    <section id="mobile">
+        <div class="container">
+            <div class="section-header">
+                <h2>Mobile & Cross-Platform Development</h2>
+                <p>Building responsive applications with native mobile capabilities</p>
+            </div>
+            <div class="mobile-grid">
+                <div class="mobile-card">
+                    <img src="assets/mobile/responsive.svg" alt="Responsive" class="mobile-icon">
+                    <h3>Responsive Web Applications</h3>
+                    <p>
+                        Designing fully responsive applications that adapt seamlessly to desktop, tablet, and mobile
+                        devices.
+                        Ensuring optimal user experience across all screen sizes and resolutions.
+                    </p>
+                </div>
+                <div class="mobile-card">
+                    <img src="assets/mobile/capacitor.svg" alt="Capacitor" class="mobile-icon">
+                    <h3>Capacitor & Native Functionality</h3>
+                    <p>
+                        Building hybrid mobile applications using Capacitor to access native device features like
+                        notifications,
+                        camera, storage, geolocation, and more while maintaining a single codebase.
+                    </p>
+                </div>
+                <div class="mobile-card">
+                    <img src="assets/mobile/crossplatform.svg" alt="Cross-Platform" class="mobile-icon">
+                    <h3>Cross-Platform Delivery</h3>
+                    <p>
+                        Ensuring consistent user experience across web and mobile platforms while leveraging shared
+                        code.
+                        Deploying applications to iOS, Android, and web from a unified Angular codebase.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools & Utilities -->
+
+    <section id="ai-development">
+        <div class="container">
+            <div class="section-header">
+                <h2>AI-Assisted Development & Modern Engineering</h2>
+                <p>Leveraging modern AI tools to accelerate development and solve complex problems</p>
+            </div>
+            <div class="ai-grid">
+                <div class="ai-card">
+                    <img src="assets/ai/ai-robot.svg" alt="AI" class="ai-icon">
+                    <h3>AI-Assisted Development</h3>
+                    <p>
+                        Using AI tools to accelerate development while maintaining high engineering standards.
+                        Combining AI assistance with critical thinking to deliver quality code faster.
+                    </p>
+                </div>
+                <div class="ai-card">
+                    <img src="assets/ai/brain.svg" alt="Brain" class="ai-icon">
+                    <h3>Agentic AI Exploration</h3>
+                    <p>
+                        Actively learning and experimenting with agent-based development workflows and automation.
+                        Exploring how AI agents can enhance development productivity.
+                    </p>
+                </div>
+                <div class="ai-card">
+                    <img src="assets/ai/copilot.svg" alt="Copilot" class="ai-icon">
+                    <h3>GitHub Copilot</h3>
+                    <p>
+                        Using Copilot to speed up coding tasks, scaffolding and repetitive work while focusing
+                        on architecture and problem solving. Enhancing productivity on routine coding tasks.
+                    </p>
+                </div>
+                <div class="ai-card">
+                    <img src="assets/ai/lightning.svg" alt="Lightning" class="ai-icon">
+                    <h3>Claude Code</h3>
+                    <p>
+                        Using Claude Code for complex reasoning, architecture exploration and generating structured
+                        solutions.
+                        Leveraging advanced AI for technical decision making and code design.
+                    </p>
+                </div>
+                <div class="ai-card">
+                    <img src="assets/ai/rocket.svg" alt="Rocket" class="ai-icon">
+                    <h3>Rapid High-Quality Delivery</h3>
+                    <p>
+                        Combining AI assistance with engineering experience to deliver solutions faster while
+                        maintaining
+                        code quality. Balancing speed with craftsmanship.
+                    </p>
+                </div>
+                <div class="ai-card">
+                    <img src="assets/ai/learning.svg" alt="Learning" class="ai-icon">
+                    <h3>Continuous Learning</h3>
+                    <p>
+                        Constantly exploring new tools, frameworks and development methodologies to stay up to date
+                        with modern engineering practices. Adapting to the evolving development landscape.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Systems I Build -->
+
+    <section id="systems">
+        <div class="container">
+            <div class="section-header">
+                <h2>Systems I Build</h2>
+                <p>Professional enterprise applications and platforms</p>
+            </div>
+            <div class="systems-grid">
+                <div class="system-card">
+                    <img src="assets/systems/realtime.svg" alt="Real-Time" class="system-icon">
+                    <h3>Real-Time Collaboration Platforms</h3>
+                    <p>
+                        Reactive interfaces with live updates using WebSockets and event streams.
+                        Building seamless real-time experiences for team collaboration and data synchronization.
+                    </p>
+                </div>
+                <div class="system-card">
+                    <img src="assets/systems/dashboard.svg" alt="Dashboard" class="system-icon">
+                    <h3>Enterprise Data Dashboards</h3>
+                    <p>
+                        Large-scale dashboards with complex data grids, advanced filtering systems, and
+                        performance-optimized UI
+                        capable of handling thousands of records with smooth interactions.
+                    </p>
+                </div>
+                <div class="system-card">
+                    <img src="assets/systems/multitenant.svg" alt="Multi-Tenant" class="system-icon">
+                    <h3>Multi-Tenant SaaS Platforms</h3>
+                    <p>
+                        Applications supporting multiple tenants, workspaces, and scalable architecture.
+                        Building systems that handle diverse user permissions and isolated data environments.
+                    </p>
+                </div>
+                <div class="system-card">
+                    <img src="assets/systems/notifications.svg" alt="Notifications" class="system-icon">
+                    <h3>Task and Notification Systems</h3>
+                    <p>
+                        Comprehensive reminder systems with due dates, priority management, and real-time notifications.
+                        Creating intuitive task management interfaces with complex state handling.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Engineering Challenges -->
+
     <section id="customer-focus">
         <div class="container">
             <div class="section-header">
@@ -1965,6 +2000,7 @@
     </section>
 
     <!-- On-Call & Incident Management -->
+
     <section id="oncall">
         <div class="container">
             <div class="section-header">
@@ -2033,6 +2069,7 @@
     </section>
 
     <!-- Engineering Principles -->
+
     <section id="principles">
         <div class="container">
             <div class="section-header">
@@ -2057,6 +2094,7 @@
     </section>
 
     <!-- Work Experience -->
+
     <section id="experience">
         <div class="container">
             <div class="section-header">
@@ -2146,6 +2184,7 @@
     </section>
 
     <!-- Life & Interests -->
+
     <section id="interests">
         <div class="container">
             <div class="section-header">
@@ -2190,6 +2229,7 @@
     </section>
 
     <!-- Contact Section -->
+
     <section id="contact">
         <div class="container">
             <div class="section-header">
