@@ -1495,8 +1495,16 @@
     <!-- Theme Toggle -->
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
         <svg class="theme-toggle-icon" id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <!-- Moon icon (default for dark theme) -->
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            <!-- Sun icon (default - switch to light mode) -->
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
         </svg>
         <span class="theme-toggle-text" id="themeText">Light Mode</span>
     </button>
@@ -1519,7 +1527,7 @@
                 <div class="title">Senior Software Engineer & Team Lead</div>
                 <p class="tagline">Building enterprise web, desktop, and mobile applications with 10 years of professional experience in Angular and .NET.</p>
                 <div class="hero-buttons">
-                    <a href="#systems" class="btn btn-primary">View Experience</a>
+                    <a href="#experience" class="btn btn-primary">View Experience</a>
                     <a href="#contact" class="btn btn-secondary">Contact</a>
                 </div>
             </div>
@@ -2442,7 +2450,7 @@
         // Apply saved theme on page load
         if (currentTheme === 'light') {
             document.body.classList.add('light-theme');
-            themeIcon.innerHTML = sunIcon;
+            themeIcon.innerHTML = moonIcon;
             themeText.textContent = 'Dark Mode';
         }
         
@@ -2452,11 +2460,11 @@
             
             // Update icon and text
             if (document.body.classList.contains('light-theme')) {
-                themeIcon.innerHTML = sunIcon;
+                themeIcon.innerHTML = moonIcon;
                 themeText.textContent = 'Dark Mode';
                 localStorage.setItem('theme', 'light');
             } else {
-                themeIcon.innerHTML = moonIcon;
+                themeIcon.innerHTML = sunIcon;
                 themeText.textContent = 'Light Mode';
                 localStorage.setItem('theme', 'dark');
             }
