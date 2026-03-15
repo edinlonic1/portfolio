@@ -263,6 +263,50 @@
             transform: none;
         }
 
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            animation: bounce 2s ease-in-out infinite;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .scroll-indicator:hover {
+            opacity: 1;
+        }
+
+        .scroll-indicator-text {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+        }
+
+        .scroll-indicator-arrow {
+            width: 24px;
+            height: 24px;
+            border-left: 2px solid var(--accent-light);
+            border-bottom: 2px solid var(--accent-light);
+            transform: rotate(-45deg);
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(10px);
+            }
+        }
+
         .hero-content h1 {
             font-size: clamp(2.5rem, 8vw, 5rem);
             font-weight: 800;
@@ -1288,7 +1332,20 @@
             }
 
             .hero {
-                min-height: 90vh;
+                min-height: 85vh;
+            }
+
+            .scroll-indicator {
+                bottom: 1.5rem;
+            }
+
+            .scroll-indicator-text {
+                font-size: 0.75rem;
+            }
+
+            .scroll-indicator-arrow {
+                width: 20px;
+                height: 20px;
             }
 
             .hero-buttons {
@@ -1527,10 +1584,15 @@
                 <div class="title">Senior Software Engineer & Team Lead</div>
                 <p class="tagline">Building enterprise web, desktop, and mobile applications with 10 years of professional experience in Angular and .NET.</p>
                 <div class="hero-buttons">
-                    <a href="#experience" class="btn btn-primary">View Experience</a>
+                    <a href="#experience" class="btn btn-primary">Jump to Experience</a>
                     <a href="#contact" class="btn btn-secondary">Contact</a>
                 </div>
             </div>
+        </div>
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <span class="scroll-indicator-text">Scroll to explore</span>
+            <div class="scroll-indicator-arrow"></div>
         </div>
     </section>
 
