@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | Edin Lonic</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="alternate icon" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+    <style>
+        /* ===== CSS RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ===== CSS VARIABLES FOR THEMING ===== */
+        :root {
+            /* Dark Theme (Default) */
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #1a1a2e;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-card-hover: rgba(255, 255, 255, 0.05);
+            --text-primary: #e4e4e7;
+            --text-secondary: #a1a1aa;
+            --text-tertiary: #d4d4d8;
+            --text-highlight: #f4f4f5;
+            --accent-primary: #6366f1;
+            --accent-secondary: #8b5cf6;
+            --accent-light: #60a5fa;
+            --accent-purple: #c4b5fd;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --border-hover: rgba(99, 102, 241, 0.3);
+            --gradient-overlay: rgba(99, 102, 241, 0.1);
+            --shadow-color: rgba(99, 102, 241, 0.2);
+        }
+
+        body.light-theme {
+            /* Light Theme */
+            --bg-primary: #ffffff;
+            --bg-secondary: #f3f4f6;
+            --bg-card: rgba(255, 255, 255, 0.95);
+            --bg-card-hover: rgba(255, 255, 255, 1);
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --text-tertiary: #374151;
+            --text-highlight: #030712;
+            --accent-primary: #4f46e5;
+            --accent-secondary: #7c3aed;
+            --accent-light: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --border-color: rgba(0, 0, 0, 0.08);
+            --border-hover: rgba(79, 70, 229, 0.3);
+            --gradient-overlay: rgba(79, 70, 229, 0.05);
+            --shadow-color: rgba(79, 70, 229, 0.12);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* ===== ANIMATED BACKGROUND GRADIENT ===== */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-primary) 100%);
+            animation: gradientShift 15s ease infinite;
+            transition: background 0.3s ease;
+        }
+
+        .bg-gradient::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--gradient-overlay) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+            transition: background 0.3s ease;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* ===== HEADER STYLES ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        body.light-theme .header {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--accent-primary);
+        }
+
+        .theme-toggle {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+        }
+
+        /* ===== CONTENT STYLES ===== */
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 120px 2rem 4rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-highlight);
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-tertiary);
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+            line-height: 1.8;
+        }
+
+        a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-light);
+            text-decoration: underline;
+        }
+
+        .last-updated {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        /* ===== FOOTER STYLES ===== */
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-primary);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer-note {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            opacity: 0.8;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .header {
+                padding: 1rem 1.5rem;
+            }
+
+            .content {
+                padding: 100px 1.5rem 2rem;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-gradient"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">Edin Lonic</a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <span id="themeIcon">🌙</span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content">
+        <h1>Terms of Service</h1>
+        <p class="last-updated">Last Updated: March 16, 2026</p>
+
+        <h2>1. Acceptance of Terms</h2>
+        <p>
+            By accessing and using edinlonic.com and its associated subdomains (collectively, the "Website"), you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the Website.
+        </p>
+
+        <h2>2. Description of Service</h2>
+        <p>
+            This Website serves as a portfolio and professional showcase for Edin Lonic, a software developer. The Website may include:
+        </p>
+        <ul>
+            <li>Portfolio information and project showcases</li>
+            <li>Developer tools and utilities hosted on subdomains</li>
+            <li>Educational content and demonstrations</li>
+            <li>Contact and professional information</li>
+        </ul>
+        <p>
+            Some tools and services hosted on subdomains may display advertisements served by third-party advertising partners, including Google AdSense.
+        </p>
+
+        <h2>3. Use of Website</h2>
+        
+        <h3>3.1 Permitted Use</h3>
+        <p>
+            You may use this Website for lawful purposes only. You agree to use the Website in a manner consistent with all applicable laws and regulations.
+        </p>
+
+        <h3>3.2 Prohibited Activities</h3>
+        <p>
+            You agree not to:
+        </p>
+        <ul>
+            <li>Use the Website for any unlawful purpose or in violation of these Terms</li>
+            <li>Attempt to gain unauthorized access to any portion of the Website or any systems or networks</li>
+            <li>Interfere with or disrupt the operation of the Website or servers hosting the Website</li>
+            <li>Transmit any viruses, malware, or other malicious code</li>
+            <li>Scrape, harvest, or collect information from the Website using automated means without permission</li>
+            <li>Impersonate any person or entity or misrepresent your affiliation with any person or entity</li>
+            <li>Remove, obscure, or alter any copyright, trademark, or other proprietary notices</li>
+        </ul>
+
+        <h2>4. Intellectual Property Rights</h2>
+        
+        <h3>4.1 Website Content</h3>
+        <p>
+            All content on this Website, including but not limited to text, graphics, logos, images, code, and software, is the property of Edin Lonic or its content suppliers and is protected by international copyright, trademark, and other intellectual property laws.
+        </p>
+
+        <h3>4.2 Limited License</h3>
+        <p>
+            You are granted a limited, non-exclusive, non-transferable license to access and use the Website for personal, non-commercial purposes. This license does not include any right to:
+        </p>
+        <ul>
+            <li>Modify, copy, distribute, transmit, display, reproduce, or create derivative works from the Website</li>
+            <li>Use the Website for commercial purposes without prior written consent</li>
+            <li>Reverse engineer, decompile, or disassemble any software or code on the Website</li>
+        </ul>
+
+        <h3>4.3 Third-Party Content</h3>
+        <p>
+            Some tools may integrate with or display third-party content. All trademarks, service marks, and trade names are proprietary to their respective owners.
+        </p>
+
+        <h2>5. Tools and Services</h2>
+        <p>
+            Developer tools and utilities provided on this Website or its subdomains are offered "as is" for educational and practical purposes. While we strive to ensure accuracy and reliability:
+        </p>
+        <ul>
+            <li>Tools are provided without warranties of any kind</li>
+            <li>We do not guarantee continuous availability or error-free operation</li>
+            <li>You use these tools at your own risk</li>
+            <li>We reserve the right to modify, suspend, or discontinue any tool at any time</li>
+        </ul>
+
+        <h2>6. Advertising</h2>
+        <p>
+            Certain pages and tools hosted on subdomains may display advertisements provided by third-party advertising networks, including Google AdSense. These advertisements are subject to the terms and privacy policies of the respective advertising providers. We do not control the content of these advertisements.
+        </p>
+
+        <h2>7. Disclaimer of Warranties</h2>
+        <p>
+            THE WEBSITE AND ALL CONTENT, TOOLS, AND SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO:
+        </p>
+        <ul>
+            <li>Implied warranties of merchantability, fitness for a particular purpose, or non-infringement</li>
+            <li>Warranties regarding the accuracy, reliability, or completeness of content</li>
+            <li>Warranties that the Website will be uninterrupted, secure, or error-free</li>
+        </ul>
+
+        <h2>8. Limitation of Liability</h2>
+        <p>
+            TO THE MAXIMUM EXTENT PERMITTED BY LAW, EDIN LONIC SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES, RESULTING FROM:
+        </p>
+        <ul>
+            <li>Your access to or use of or inability to access or use the Website</li>
+            <li>Any conduct or content of any third party on the Website</li>
+            <li>Any content obtained from the Website</li>
+            <li>Unauthorized access, use, or alteration of your transmissions or content</li>
+        </ul>
+        <p>
+            IN NO EVENT SHALL OUR TOTAL LIABILITY EXCEED ONE HUNDRED DOLLARS ($100) OR THE AMOUNT YOU PAID US IN THE LAST SIX MONTHS, WHICHEVER IS GREATER.
+        </p>
+
+        <h2>9. Indemnification</h2>
+        <p>
+            You agree to indemnify, defend, and hold harmless Edin Lonic and its affiliates from and against any and all claims, damages, obligations, losses, liabilities, costs, and expenses arising from:
+        </p>
+        <ul>
+            <li>Your use of the Website</li>
+            <li>Your violation of these Terms</li>
+            <li>Your violation of any third-party rights, including intellectual property rights</li>
+        </ul>
+
+        <h2>10. External Links</h2>
+        <p>
+            The Website may contain links to third-party websites or services that are not owned or controlled by Edin Lonic. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party websites. You acknowledge and agree that we shall not be liable for any damage or loss caused by your use of any third-party website.
+        </p>
+
+        <h2>11. Privacy</h2>
+        <p>
+            Your use of the Website is also governed by our Privacy Policy, which is incorporated into these Terms by reference. Please review our <a href="privacy.html">Privacy Policy</a> to understand our data collection and use practices.
+        </p>
+
+        <h2>12. Modifications to Terms</h2>
+        <p>
+            We reserve the right to modify these Terms at any time. We will notify users of any material changes by updating the "Last Updated" date at the top of this page. Your continued use of the Website after such modifications constitutes your acceptance of the updated Terms.
+        </p>
+
+        <h2>13. Modifications to Website</h2>
+        <p>
+            We reserve the right to modify, suspend, or discontinue any aspect of the Website at any time without notice or liability.
+        </p>
+
+        <h2>14. Termination</h2>
+        <p>
+            We may terminate or suspend your access to the Website immediately, without prior notice or liability, for any reason, including if you breach these Terms. Upon termination, your right to use the Website will immediately cease.
+        </p>
+
+        <h2>15. Governing Law</h2>
+        <p>
+            These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which the Website operator resides, without regard to its conflict of law provisions.
+        </p>
+
+        <h2>16. Dispute Resolution</h2>
+        <p>
+            Any disputes arising from these Terms or your use of the Website shall be resolved through good faith negotiations. If negotiations fail, disputes shall be resolved through binding arbitration or in the courts of competent jurisdiction.
+        </p>
+
+        <h2>17. Severability</h2>
+        <p>
+            If any provision of these Terms is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary so that these Terms will otherwise remain in full force and effect.
+        </p>
+
+        <h2>18. Entire Agreement</h2>
+        <p>
+            These Terms, together with the Privacy Policy, constitute the entire agreement between you and Edin Lonic regarding the use of the Website and supersede any prior agreements.
+        </p>
+
+        <h2>19. Contact Information</h2>
+        <p>
+            If you have any questions about these Terms of Service, please contact us at:
+        </p>
+        <p>
+            <strong>Email:</strong> <a href="mailto:edinlonic94@gmail.com">edinlonic94@gmail.com</a><br>
+            <strong>Website:</strong> <a href="https://edinlonic.com">edinlonic.com</a>
+        </p>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Edin Lonic</h3>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                    Software developer specializing in full-stack development and building innovative web tools.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul class="footer-links">
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Edin Lonic. All rights reserved.</p>
+            <p class="footer-note">Some tools hosted on subdomains may contain advertising.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const body = document.body;
+
+        // Check for saved theme preference or default to dark
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        if (currentTheme === 'light') {
+            body.classList.add('light-theme');
+            themeIcon.textContent = '☀️';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+            
+            if (body.classList.contains('light-theme')) {
+                themeIcon.textContent = '☀️';
+                localStorage.setItem('theme', 'light');
+            } else {
+                themeIcon.textContent = '🌙';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
+</body>
+
+</html>
